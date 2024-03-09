@@ -2,7 +2,7 @@ import GuessGame
 import CurrencyRouletteGame
 import MemoryGame
 import time
-import Score
+#import Score
 
 
 def welcome():
@@ -24,7 +24,6 @@ def load_game():
 
     if game == 1:
         won_lost = MemoryGame.play(difficulty)
-        Score(difficulty)
         return won_lost
     elif game == 2:
         won_lost = GuessGame.play(difficulty)
@@ -40,12 +39,12 @@ won_lost = load_game()
 
 def display_won_lost(won_lost, difficulty):
     if won_lost:
-        Score.add_score(difficulty)
+        print(f'User Won')
     else:
         print(f'User Lost')
 
 #
-# Display_won_lost(won_lost, difficulty)
+Display_won_lost(won_lost)
 #
 #
 # answer = 'y'
