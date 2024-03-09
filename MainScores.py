@@ -11,7 +11,7 @@
 #         f.write(f"{POINTS_OF_WINNING}\n")
 #
 from flask import Flask, render_template
-import score
+#import score
 
 app = Flask(__name__)
 
