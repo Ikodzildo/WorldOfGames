@@ -2,7 +2,9 @@ import GuessGame
 import CurrencyRouletteGame
 import MemoryGame
 import time
-import Score
+
+
+# import Score
 
 
 def welcome():
@@ -11,7 +13,7 @@ def welcome():
     print(f"Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play.\n")
 
 
-def load_game():
+def load_game(a, b):
     print("Please choose a game to play:\n"
           "1. Memory Game - a sequence of numbers will appear for 1 second and you have to guess it back\n"
           "2. Guess Game - guess a number and see if you chose like the computer\n"
@@ -23,29 +25,31 @@ def load_game():
     time.sleep(2)
 
     if game == 1:
-        won_lost = MemoryGame.play(difficulty)
-        Score(difficulty)
-        return won_lost
+        iswon = MemoryGame.play(difficulty)
+        return iswon, difficulty
     elif game == 2:
-        won_lost = GuessGame.play(difficulty)
-        return won_lost
+        iswon = GuessGame.play(difficulty)
+        return iswon, difficulty
     else:  # game == 3:
-        won_lost = CurrencyRouletteGame.play(difficulty)
-        return won_lost
+        iswon = CurrencyRouletteGame.play(difficulty)
+        return iswon, difficulty
 
 
-welcome()
-won_lost = load_game()
+def main():
+    welcome()
+    load_game(a, b)
 
 
-def display_won_lost(won_lost, difficulty):
+def display_won_lost(won_lost):
     if won_lost:
-        Score.add_score(difficulty)
+        print(f'User won')
+        # Score.add_score(difficulty)
+
     else:
         print(f'User Lost')
 
-#
-# Display_won_lost(won_lost, difficulty)
+
+display_won_lost(won_lost)
 #
 #
 # answer = 'y'
@@ -59,3 +63,7 @@ def display_won_lost(won_lost, difficulty):
 #         Display_won_lost(won_lost)
 #     else:
 #         print(f'Bye Bye')
+
+
+if __name__ == "__main__":
+    main()

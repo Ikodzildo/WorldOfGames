@@ -11,21 +11,24 @@
 #         f.write(f"{POINTS_OF_WINNING}\n")
 #
 from flask import Flask, render_template
-import score
+
+# import score
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
     number = 42  # You can replace this with any number you want to display
     return render_template('index.html', number=number)
 
+
 @app.errorhandler()
 def not_found_error(error):
     return render_template('error.html', error_message='Page not found')
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
 
 app.run(host='127.0.0.1', port="8080")
