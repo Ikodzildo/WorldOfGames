@@ -1,5 +1,5 @@
 import MainGame
-import MainScores
+#import MainScores
 
 # POINTS_OF_WINNING = (DIFFICULTY * 3) + 5
 
